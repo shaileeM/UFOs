@@ -25,4 +25,22 @@ function buildTable(data)
     
 }
 
+//function to filter data
+function handleClick()
+{
+	let date = d3.select("#datetime").property("value");  //d3 looks for first datetime id in the html 
+	let filteredData = tableData;
+	
+	if(date)  //if date is entered use that date to filter data or else use default
+	{
+		filteredData=filteredData.filter(row => row.datetime === date); //keep rows whose date equals selected date
+	};
+	
+	buildTable(filteredData); //rebuild the table with filtered data
+};
 
+// Attach an event to listen for the form button
+d3.selectAll("#filter-btn").on("click", handleClick);
+
+
+buildTable(tableData); //load table with original data first of all 
