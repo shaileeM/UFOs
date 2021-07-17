@@ -77,7 +77,7 @@ function updateFilters() {
     var toCheck = filtersObject['filterId'];
 
     filteredData=filteredData.filter(function(currentElement){
-            if(currentElement.city === toCheck || currentElement.state === toCheck || 
+            if(currentElement.datetime === toCheck || currentElement.city === toCheck || currentElement.state === toCheck || 
                currentElement.country === toCheck || currentElement.shape === toCheck )
             {
                 return true;
